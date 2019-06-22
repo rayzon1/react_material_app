@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Dialog from './Dialog';
 
 
 const useStyles = makeStyles({
@@ -23,9 +24,24 @@ const useStyles = makeStyles({
 export default function MediaCard(props) {
   const classes = useStyles();
 
+  const [open, setOpen] = React.useState(false);
+
+  function handleClickOpen() {
+    setOpen(true);
+  }
+
+  function handleClose() {
+    setOpen(false);
+  }
+
   return (
     <Card className={classes.card}>
-      <CardActionArea>
+        <Dialog 
+            open={open}
+            handleClose={handleClose}
+            image={props.image}
+        />
+      <CardActionArea onClick={handleClickOpen}>
         <CardMedia
           className={classes.media}
           image={props.image}

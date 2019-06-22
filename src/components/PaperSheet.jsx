@@ -16,8 +16,8 @@ export default function PaperSheet() {
   const classes = useStyles();
 
   return (
-    <div>
-      <Paper className={classes.root}>
+    <div >
+      <Paper className={classes.root} >
         <Typography variant="h5" component="h3">
           <span className="coffee">BRAZIL COFFEE</span> 
           <FreeBreakfastTwoTone />         

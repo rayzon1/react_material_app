@@ -8,3 +8,9 @@
   display: inline-flex;
   margin: 10px;
 }
+
+.error-symbol {
+  position: relative;
+  top: 5px;
+  left: 10px;
+}

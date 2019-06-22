@@ -1,6 +1,7 @@
 import React from 'react';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import { Link } from 'react-router-dom';
 
 export default function SimpleMenu(props) {
 
@@ -13,10 +14,11 @@ export default function SimpleMenu(props) {
         open={Boolean(props.anchorEl)}
         onClose={props.handleClose}
       >
-        <MenuItem onClick={props.handleClose}>Profile</MenuItem>
-        <MenuItem onClick={props.handleClose}>My account</MenuItem>
-        <MenuItem onClick={props.handleClose}>Logout</MenuItem>
+        <Link to="/"><MenuItem onClick={props.handleClose}>Home</MenuItem></Link>
+        <Link to="/about"><MenuItem onClick={props.handleClose}>About</MenuItem></Link>
+        <MenuItem onClick={props.handleClose}>Resources</MenuItem>
       </Menu>
+
     </div>
   );
 }

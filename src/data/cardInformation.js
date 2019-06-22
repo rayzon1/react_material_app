@@ -3,7 +3,7 @@ const data = [
         index: 0,
         title: "Iguana",
         image: require('../static/images/iguana.jpg'),
-        description: "The green iguana (Iguana iguana), also known as the American iguana, is a large, arboreal, mostly herbivorous species of lizard of the genus Iguana."
+        description: "The green iguana (Iguana iguana), also known as the American iguana, is a large, arboreal, mostly herbivorous species of lizard of the genus Iguana. Iguana is from the Taino name, iwana."
 
     },
     {

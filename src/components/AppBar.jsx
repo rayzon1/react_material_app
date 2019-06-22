@@ -9,6 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import SimpleMenu from './SimpleMenu';
 
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
