@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import App from "../App";
 import About from "./About";
-import Grid from '@material-ui/core/Grid';
 import SearchAppBar from '../components/AppBar';
 
 
