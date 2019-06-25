@@ -15,7 +15,7 @@ const useStyles = makeStyles(({
     maxHeight: '80%', 
     maxWidth: '80%',
     borderRadius: '25px',
-    marginLeft: '11%'
+    marginLeft: '10%'
   }
 }));
 
