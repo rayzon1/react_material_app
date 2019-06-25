@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.childrenPic {
+  height: 333.5px;
+  width: 500px;
+}
+
+button:focus {
+  outline: 0;
+}

@@ -2,36 +2,37 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Paper, Typography } from "@material-ui/core";
 import { FreeBreakfastTwoTone } from "@material-ui/icons";
+import {Fade} from 'react-reveal';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
-    width: "90vw"
+    width: "90vw",
+    backgroundColor: 'rgba(165, 112, 54, 0.1)'
   }
 }));
 
-export default function PaperSheet() {
+export default function PaperSheet(props) {
   const classes = useStyles();
-
+  
   return (
     <div>
       <Paper className={classes.root}>
-        <Typography variant="h5" component="h3">
-          <span className="coffee">BRAZIL COFFEE</span>
-          <FreeBreakfastTwoTone />
-        </Typography>
-        <Typography component="p">
-          Paper can be used to build surface or other elements for your
-          application. Paper can be used to build surface or other elements for
-          your application. Paper can be used to build surface or other elements
-          for your application. Paper can be used to build surface or other
-          elements for your application. Paper can be used to build surface or
-          other elements for your application. Paper can be used to build
-          surface or other elements for your application. Paper can be used to
-          build surface or other elements for your application. Paper can be
-          used to build surface or other elements for your application. Paper
-          can be used to build surface or other elements for your application.
-        </Typography>
+        <Fade right>
+          <Typography variant="h5" component="h3">
+            <span className="coffee">{props.title}</span>
+            {
+              props.id === 0 
+                ? <FreeBreakfastTwoTone />
+                : null
+            }
+          </Typography>
+        
+          <Typography component="p">
+            {props.description}
+          </Typography>
+        </Fade>
       </Paper>
     </div>
   );

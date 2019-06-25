@@ -1,23 +1,45 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./App.css";
-import { Button, Typography, Grid } from "@material-ui/core";
+import { Typography, Grid, makeStyles } from "@material-ui/core";
 import MediaCard from "./components/MediaCard";
 import PaperSheet from "./components/PaperSheet";
 import AlertDialog from "./components/Dialog";
 import data from "./data/cardInformation.js";
-import {Fade} from 'react-reveal';
-import CardNavigation from './components/CardNavigation';
+import { Fade, Flip } from "react-reveal";
+import CardNavigation from "./components/CardNavigation";
+import sectionBlock from './data/sectionBlockInformation';
+
+const useStyles = makeStyles(({
+  root: {
+    boxShadow: '5px 10px 8px #888888', 
+    maxHeight: '80%', 
+    maxWidth: '80%',
+    borderRadius: '25px',
+    marginLeft: '11%'
+  }
+}));
 
 function App() {
   const [count, setCount] = useState(0);
-  // const [cardSet, setCard] = useState([]);
-  
-  // useEffect(() => {
-    
-    
-  // })
+  const classes = useStyles();
 
-  
+  const setCardsArray = cards => {
+    const cardsArray = cards.map(card => (
+      <Flip right>
+        <MediaCard
+          index={card.index}
+          title={card.title}
+          image={card.image}
+          description={card.description}
+          key={card.index}
+        />
+      </Flip>
+    ));
+    return cardsArray;
+  };
+
+  const cards = setCardsArray(data);
+
   return (
     <Grid
       container
@@ -32,29 +54,29 @@ function App() {
           Rainforest Conservation
         </Typography>
       </Grid>
+      <Fade left>
+        <Grid item xs={12}>
+          {cards.map((card, index) => (index === count ? card : null))}
+        </Grid>
+      </Fade>
       <Grid item xs={12}>
-        <MediaCard
-          index={data[count].index}
-          title={data[count].title}
-          image={data[count].image}
-          description={data[count].description}
-        />
+        <CardNavigation count={count} setCount={setCount} />
       </Grid>
-      <CardNavigation 
-        count={count}
-        setCount={setCount}
-      />
       <Grid item xs={12}>
-        <Fade left>
-          <PaperSheet />
-        </Fade>
+        {
+          sectionBlock.map(data => 
+            <PaperSheet
+              title={data.title}
+              description={data.description}
+              id={data.id}
+            />
+          )
+        }
+      </Grid>
+      <Grid item xs={12}>
+        <img src={require('./static/images/brazil-people.jpg')} alt="" className={classes.root} />
       </Grid>
       <AlertDialog />
-      <Grid item xs={12}>
-        <Button variant="contained" color="primary">
-          Click Me!
-        </Button>
-      </Grid>
     </Grid>
   );
 }
