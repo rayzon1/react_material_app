@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import App from "../App";
 import About from "./About";
 import SearchAppBar from '../components/AppBar';
@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 const MainContainer = () => {
     return(
         
-        <BrowserRouter>
+        <HashRouter>
             <div>
                 <SearchAppBar/>
                 <Switch> 
@@ -17,7 +17,7 @@ const MainContainer = () => {
                 </Switch>
                 <Footer />
             </div>
-        </BrowserRouter>
+        </HashRouter>
     )
 
 }
